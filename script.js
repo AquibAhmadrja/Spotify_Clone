@@ -61,7 +61,7 @@ async function loadSongsFromFolder(folder) {
             return [];
         }
         
-        console.log(`✅ Loaded ${songs.length} songs from ${folder}:`, songs);
+        console.log(`Loaded ${songs.length} songs from ${folder}:`, songs);
         return songs;
         
     } catch (error) {
@@ -103,8 +103,6 @@ function playMusic(track) {
     });
 }
 
-
-
 // Play next song
 function playNext() {
     if (songs.length === 0) {
@@ -113,7 +111,7 @@ function playNext() {
     }
     
     currentSongIndex = (currentSongIndex + 1) % songs.length;
-    console.log(`⏭️ Next track: ${currentSongIndex + 1}/${songs.length}`);
+    console.log(`Next track: ${currentSongIndex + 1}/${songs.length}`);
     playMusic(songs[currentSongIndex]);
 }
 
@@ -125,7 +123,7 @@ function playPrevious() {
     }
     
     currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-    console.log(`⏮️ Previous track: ${currentSongIndex + 1}/${songs.length}`);
+    console.log(`Previous track: ${currentSongIndex + 1}/${songs.length}`);
     playMusic(songs[currentSongIndex]);
 }
 
@@ -148,8 +146,8 @@ function showNotification(message) {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🎵 Spotify Clone initialized!');
-    console.log('🎧 Real MP3 playback enabled');
+    console.log('Spotify Clone initialized!');
+    console.log('Real MP3 playback enabled');
     
     // Play/Pause button
     const playBtn = document.getElementById('play');
@@ -207,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const rect = seekbar.getBoundingClientRect();
                 const percent = (e.clientX - rect.left) / rect.width;
                 currentSong.currentTime = percent * currentSong.duration;
-                console.log(`⏩ Seeked to ${Math.floor(percent * 100)}%`);
+                console.log(`Seeked to ${Math.floor(percent * 100)}%`);
             }
         });
     }
@@ -220,7 +218,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (currentSong) {
                 currentSong.volume = volume;
             }
-            console.log(`🔊 Volume: ${e.target.value}%`);
+            console.log(`Volume: ${e.target.value}%`);
         });
     }
     
@@ -236,7 +234,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             // Check if image loads successfully
             img.addEventListener('error', () => {
-                console.error(`❌ Failed to load image: ${src}`);
+                console.error(`Failed to load image: ${src}`);
                 // Show placeholder with folder name
                 img.style.display = 'none';
                 const folderMatch = src.match(/songs\/([^\/]+)\//);
@@ -250,7 +248,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
             
             img.addEventListener('load', () => {
-                console.log(`✅ Loaded image: ${src}`);
+                console.log(`Loaded image: ${src}`);
             });
             
             const folderMatch = src.match(/songs\/([^\/]+)\//);
@@ -290,7 +288,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 // Click to play album
                 card.addEventListener('click', async () => {
-                    console.log(`\n🎼 Loading album: ${folder}`);
+                    console.log(`\nLoading album: ${folder}`);
                     
                     const loadedSongs = await loadSongsFromFolder(folder);
                     
@@ -299,7 +297,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         playMusic(loadedSongs[0]);
                     } else {
                         showNotification(`No songs found in ${folder}`);
-                        console.error(`❌ No songs loaded from ${folder}`);
+                        console.error(`No songs loaded from ${folder}`);
                     }
                 });
             }
@@ -312,7 +310,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         songTime.innerHTML = '00:00 / 00:00';
     }
     
-    console.log('✅ Ready! Click any album to start playing.');
+    console.log('Ready! Click any album to start playing.');
 });
 
 // Add CSS for notification and placeholders
