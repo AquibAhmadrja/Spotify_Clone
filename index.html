@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="utility.css">
+  <title>Spotify Clone</title>
+</head>
+<body>
+  <div class="navigation-bar flex ">
+    <div class="nav1">
+      <div class="hamburger" onclick="toggleSidebar()">
+        <img src="Icon/hamburger.svg" alt="hamburger">
+      </div>
+      <div class="logo"><img src="Icon/logo.svg" alt="Logo"></div>
+      <div class="home"><img src="Icon/home.svg" alt="home"></div>
+      <div class="search-bar">
+        <div class="search"><img src="Icon/search.svg" alt="search"></div>
+        <input type="text" placeholder="What do you want to play?">
+        <div class="browse">
+          <img src="Icon/browse.svg" alt="browse">
+        </div>
+      </div>
+    </div>
+    <div class="nav2">
+      <div class="premium">Premium</div>
+      <div class="support">Support</div>
+      <div class="download">Download</div>
+      <div class="nav-line">|</div>
+      <div class="install">
+        <div class="install-img">
+          <img src="Icon/install.svg" alt="install">
+        </div>
+        <div class="install-text">Install App</div>
+      </div>
+      <div class="signup">Sign up</div>
+      <button class="login hover">Log in</button>
+    </div>
+  </div>
+
+  <div class="content_area flex">
+    <div class="left">
+      <div class="your-library">
+        <div class="your-library-text">
+          <h3>Your Library</h3>
+        </div>
+        <div class="plus-logo">
+          <img src="Icon/plus-sign.svg" alt="Add Song">
+        </div>
+      </div>
+
+      <div class="playlist">
+        <div class="create-playlist">
+          <h4>Create your first playlist</h4>
+          <h5>It's easy, we'll help you</h5>
+          <button class="create-button hover">
+            <div class="create-button-text">Create playlist</div>
+          </button>
+        </div>
+
+        <div class="black-space"></div>
+
+        <div class="new-episodes">
+          <h4>Let's find some podcasts to follow</h4>
+          <h5>We'll keep you updated on new episodes</h5>
+          <button class="browse-button hover">
+            <div class="browse-button-text">Browse podcasts</div>
+          </button>
+        </div>
+
+        <div class="nav2 mobile-nav">
+          <div class="install">Install</div>
+          <div class="signup">Sign Up</div>
+          <div class="login">Login</div>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="legal">Legal</div>
+        <div class="safety-and-privacy-centre">Safety & Privacy Centre</div>
+        <div class="privacy-policy">Privacy Policy</div>
+        <div class="cookies-1">Cookies</div>
+        <br>
+        <div class="about-ads">About Ads</div>
+        <div class="Accessibility">Accessibility</div>
+        <div class="cookies-2">Cookies</div>
+        <button class="english-lang hover">
+          <img src="Icon/english-lang.svg" alt="English">
+          <div class="english-text">English</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="right">
+      <section class="block">
+        <h2>Trending Songs</h2>
+        <div class="row">
+          <div class="card"><img src="songs/Angry_(mood)/cover.jpg" alt="Angry Mood"></div>
+          <div class="card"><img src="songs/Bright_(mood)/cover.jpg" alt="Bright Mood"></div>
+          <div class="card"><img src="songs/Chill_(mood)/cover.jpg" alt="Chill"></div>
+          <div class="card"><img src="songs/cs/cover.jpg" alt="CS"></div>
+          <div class="card"><img src="songs/Dark_(mood)/cover.jpg" alt="Dark"></div>
+          <div class="card"><img src="songs/Diljit/cover.jpg" alt="Diljit"></div>
+          <div class="card"><img src="songs/Funky_(mood)/cover.jpg" alt="Funky"></div>
+          <div class="card"><img src="songs/karan aujla/cover.jpg" alt="Karan Aujla"></div>
+          <div class="card"><img src="songs/Love_(mood)/cover.jpg" alt="Love"></div>
+          <div class="card"><img src="songs/ncs/cover.jpg" alt="NCS"></div>
+          <div class="card"><img src="songs/Uplifting_(mood)/cover.jpg" alt="Uplifting"></div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Popular artists</h2>
+        <div class="row">
+          <div class="card"><img src="songs/Uplifting_(mood)/cover.jpg" alt="Uplifting"></div>
+          <div class="card"><img src="songs/Dark_(mood)/cover.jpg" alt="Dark"></div>
+          <div class="card"><img src="songs/Diljit/cover.jpg" alt="Diljit"></div>
+          <div class="card"><img src="songs/Funky_(mood)/cover.jpg" alt="Funky"></div>
+          <div class="card"><img src="songs/karan aujla/cover.jpg" alt="Karan Aujla"></div>
+          <div class="card"><img src="songs/Love_(mood)/cover.jpg" alt="Love"></div>
+          <div class="card"><img src="songs/ncs/cover.jpg" alt="NCS"></div>
+          <div class="card"><img src="songs/Angry_(mood)/cover.jpg" alt="Angry Mood"></div>
+          <div class="card"><img src="songs/Bright_(mood)/cover.jpg" alt="Bright Mood"></div>
+          <div class="card"><img src="songs/Chill_(mood)/cover.jpg" alt="Chill"></div>
+          <div class="card"><img src="songs/cs/cover.jpg" alt="CS"></div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Popular albums and singles</h2>
+        <div class="row">
+          <div class="card"><img src="songs/Diljit/cover.jpg" alt="Diljit"></div>
+          <div class="card"><img src="songs/Funky_(mood)/cover.jpg" alt="Funky"></div>
+          <div class="card"><img src="songs/karan aujla/cover.jpg" alt="Karan Aujla"></div>
+          <div class="card"><img src="songs/Love_(mood)/cover.jpg" alt="Love"></div>
+          <div class="card"><img src="songs/ncs/cover.jpg" alt="NCS"></div>
+          <div class="card"><img src="songs/Angry_(mood)/cover.jpg" alt="Angry Mood"></div>
+          <div class="card"><img src="songs/Bright_(mood)/cover.jpg" alt="Bright Mood"></div>
+          <div class="card"><img src="songs/Chill_(mood)/cover.jpg" alt="Chill"></div>
+          <div class="card"><img src="songs/cs/cover.jpg" alt="CS"></div>
+          <div class="card"><img src="songs/Uplifting_(mood)/cover.jpg" alt="Uplifting"></div>
+          <div class="card"><img src="songs/Dark_(mood)/cover.jpg" alt="Dark"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="playbar">
+    <div class="seekbar">
+      <div class="circle"></div>
+    </div>
+    <div class="abovebar">
+      <div class="timevol">
+        <div class="songtime">00:00 / 00:00</div>
+      </div>
+      <div class="songbuttons">
+        <img width="20" id="previous" src="Icon/prevsong.svg" alt="Previous">
+        <img width="32" id="play" src="Icon/play.svg" alt="Play">
+        <img width="20" id="next" src="Icon/nextsong.svg" alt="Next">
+      </div>
+      <div class="volume">
+        <img width="20" src="Icon/volume.svg" alt="Volume">
+        <div class="range">
+          <input type="range" name="volume" id="volumeControl" min="0" max="100" value="100">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
