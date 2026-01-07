@@ -73,56 +73,37 @@ async function loadSongsFromFolder(folder) {
 
 // Play a specific song
 function playMusic(track) {
-    console.log(`🎵 Playing: ${track}`);
-    
     if (currentSong) {
         currentSong.pause();
-        currentSong = null;
     }
-    
+
     currentSong = new Audio(track);
-    
-    // Update time display as song plays
+    currentSongIndex = songs.indexOf(track);
+
     currentSong.addEventListener('timeupdate', () => {
         const songTime = document.querySelector('.songtime');
-        if (songTime) {
-            songTime.innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
+        if (songTime && !isNaN(currentSong.duration)) {
+            songTime.innerHTML =
+                `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
         }
-        
-        // Update seek bar
+
         const circle = document.querySelector('.circle');
         if (circle && !isNaN(currentSong.duration)) {
-            const percent = (currentSong.currentTime / currentSong.duration) * 100;
-            circle.style.left = percent + "%";
+            circle.style.left =
+                (currentSong.currentTime / currentSong.duration) * 100 + "%";
         }
     });
-    
-    // When song ends, play next
-    currentSong.addEventListener('ended', () => {
-        console.log('Song ended, playing next...');
-        playNext();
+
+    currentSong.addEventListener('ended', playNext);
+
+    currentSong.play().then(() => {
+        document.getElementById('play').src = 'Icon/pause.svg';
+        const songName = track.split('/').pop().replace('.mp3', '');
+        showNotification(`Now Playing: ${songName}`);
     });
-    
-    // Handle errors
-    currentSong.addEventListener('error', (e) => {
-        console.error('❌ Error playing song:', track);
-        console.error('Error details:', e);
-        showNotification(`Error playing: ${track.split('/').pop()}`);
-        playNext(); // Try next song
-    });
-    
-    // Start playing
-    currentSong.play()
-        .then(() => {
-            document.getElementById('play').src = 'pause.svg';
-            const songName = track.split('/').pop().replace('.mp3', '');
-            showNotification(`Now Playing: ${songName}`);
-        })
-        .catch(error => {
-            console.error('Play failed:', error);
-            showNotification('Playback failed. Click play to retry.');
-        });
 }
+
+
 
 // Play next song
 function playNext() {
@@ -181,10 +162,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (currentSong.paused) {
                 currentSong.play();
-                playBtn.src = 'pause.svg';
+                playBtn.src = 'Icon/pause.svg';
             } else {
                 currentSong.pause();
-                playBtn.src = 'play.svg';
+                playBtn.src = 'Icon/play.svg';
             }
         });
     }
